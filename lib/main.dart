@@ -11,57 +11,126 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: const Color(0XFF075E55),
-            title: const Text("WhatsApp"),
-            actions: const <Widget>[
-              // ignore: unnecessary_const
-              const Padding(
-                padding: EdgeInsets.only(right: 10),
-                child: Icon(
-                  Icons.search,
-                  size: 28,
-                ),
+      theme: ThemeData(
+        primaryColor: Color(0XFF075E55),
+        indicatorColor: Color(0XFFFFFFFFFF),
+      ),
+      home: MyHome(),
+    );
+  }
+}
+
+class MyHome extends StatefulWidget {
+  const MyHome({Key? key}) : super(key: key);
+
+  @override
+  _MyHomeState createState() => _MyHomeState();
+}
+
+class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
+  var width;
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+  }
+
+  Widget build(BuildContext context) {
+    width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).primaryColor,
+        title: Text("WhatsApp"),
+        actions: <Widget>[
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          PopupMenuButton(itemBuilder: (BuildContext context) {
+            return [
+              PopupMenuItem(
+                child: Text("New Group"),
               ),
-              // ignore: unnecessary_const
-              const Padding(
-                padding: EdgeInsets.only(right: 10),
-                child: Icon(
-                  Icons.more_vert,
-                  size: 28,
-                ),
+              PopupMenuItem(
+                child: Text("New broadcast"),
               ),
-            ],
-            bottom: const TabBar(
-                indicatorWeight: 3.0,
-                indicatorColor: Color(0XFFFFFFFF),
-                tabs: <Widget>[
-                  Tab(
-                    icon: Icon(Icons.camera_alt),
+              PopupMenuItem(
+                child: Text("Linked devices"),
+              ),
+              PopupMenuItem(
+                child: Text("Starred messages"),
+              ),
+              PopupMenuItem(
+                child: Text("Settings"),
+              ),
+            ];
+          })
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              child: TabBar(
+                tabs: [
+                  Container(
+                    width: 30,
+                    child: Tab(
+                      icon: Icon(Icons.camera_alt),
+                    ),
                   ),
-                  Tab(
-                    text: 'CHATS',
+                  Container(
+                    width: width * 0.2,
+                    child: Row(
+                      children: <Widget>[
+                        Tab(
+                          text: "CHATS",
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Tab(
+                          icon: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            child: Text(
+                              "5",
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color: Theme.of(context).primaryColor),
+                            ),
+                            radius: 10,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  Tab(
-                    text: 'STATUS',
+                  Container(
+                    width: width * 0.2,
+                    child: Row(
+                      children: <Widget>[
+                        Tab(
+                          text: "STATUS",
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Tab(
+                          child: Icon(
+                            Icons.brightness_1,
+                            size: 9,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                  Tab(
-                    text: 'CALLS',
-                  ),
-                ]),
-          ),
-          body: const TabBarView(
-            children: [
-              Icon(Icons.camera_alt),
-              Icon(Icons.message),
-              Icon(Icons.star_outline),
-              Icon(Icons.call),
-            ],
-          ),
-        ),
+                  Container(
+                    width: width * 0.2,
+                    child: Tab(
+                      text: "CALLS",
+                    ),
+                  )
+                ],
+                controller: _tabController,
+                isScrollable: true,
+              ),
+            ),
+            preferredSize: Size.fromHeight(60.0)),
       ),
     );
   }
