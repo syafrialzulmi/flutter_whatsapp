@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'calls.dart';
+import 'camera.dart';
+import 'chat.dart';
+import 'status.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -131,6 +136,10 @@ class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
               ),
             ),
             preferredSize: Size.fromHeight(60.0)),
+      ),
+      body: TabBarView(
+        children: [Camera(), Chat(), Status(), Calls()],
+        controller: _tabController,
       ),
     );
   }
