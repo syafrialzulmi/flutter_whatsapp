@@ -6,9 +6,9 @@ class Camera extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData(iconTheme: IconThemeData(color: Colors.white)),
+      data: ThemeData(iconTheme: const IconThemeData(color: Colors.white)),
       child: Stack(
-        alignment: Alignment(0, 1),
+        alignment: const Alignment(0, 1),
         children: <Widget>[
           Container(
             color: Colors.blueGrey,
@@ -17,7 +17,7 @@ class Camera extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                Icon(Icons.keyboard_arrow_up),
+                const Icon(Icons.keyboard_arrow_up),
                 Container(
                   height: 100,
                   child: ListView(
@@ -27,37 +27,39 @@ class Camera extends StatelessWidget {
                       (index) => Container(
                         color: Colors.redAccent,
                         width: 70,
-                        margin: EdgeInsets.all(4.0),
+                        margin: const EdgeInsets.all(4.0),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 3.0,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    IconButton(onPressed: () {}, icon: Icon(Icons.flash_off)),
+                    IconButton(
+                        onPressed: () {}, icon: const Icon(Icons.flash_off)),
                     Container(
                       width: 60,
                       height: 60,
                       decoration: ShapeDecoration(
                           shape: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(40),
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 2.0))),
+                              borderSide: const BorderSide(
+                                  color: Colors.white, width: 2.0))),
                     ),
-                    IconButton(onPressed: () {}, icon: Icon(Icons.camera_alt)),
+                    IconButton(
+                        onPressed: () {}, icon: const Icon(Icons.camera_alt)),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 3.0,
                 ),
                 Container(
                   height: 30,
                   color: Colors.black,
-                  child: Align(
+                  child: const Align(
                     child: Text(
                       "Hold for video, tap for photo",
                       style: TextStyle(color: Colors.white),

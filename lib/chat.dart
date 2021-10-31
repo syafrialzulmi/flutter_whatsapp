@@ -12,7 +12,7 @@ class _ChatState extends State<Chat> {
   Widget build(BuildContext context) {
     return ListView.separated(
       itemBuilder: (context, index) => _buildChat(),
-      separatorBuilder: (context, index) => Divider(
+      separatorBuilder: (context, index) => const Divider(
         indent: 60.0,
       ),
       itemCount: 12,
@@ -23,7 +23,7 @@ class _ChatState extends State<Chat> {
     return Theme(
       data: ThemeData(),
       child: ListTile(
-        leading: CircleAvatar(
+        leading: const CircleAvatar(
           radius: 32.0,
           backgroundColor: Color(0XFFDDDDDD),
           child: Icon(
@@ -32,18 +32,18 @@ class _ChatState extends State<Chat> {
             size: 38,
           ),
         ),
-        title: Text(
+        title: const Text(
           "User 1",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        subtitle: Text(
+        subtitle: const Text(
           "+62 852-7864-8321: Hai, apa kabar baik? Alhamdulillah",
           maxLines: 1,
         ),
         trailing: Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 "9.00 PM",
                 style: TextStyle(fontSize: 12.0),

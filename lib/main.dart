@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0XFF075E55),
-        indicatorColor: Color(0XFFFFFFFFFF),
+        primaryColor: const Color(0XFF075E55),
+        indicatorColor: const Color(0xffffffff),
       ),
-      home: MyHome(),
+      home: const MyHome(),
     );
   }
 }
@@ -42,29 +42,30 @@ class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
     _tabController = TabController(length: 4, vsync: this);
   }
 
+  @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        title: Text("WhatsApp"),
+        title: const Text("WhatsApp"),
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           PopupMenuButton(itemBuilder: (BuildContext context) {
             return [
-              PopupMenuItem(
+              const PopupMenuItem(
                 child: Text("New Group"),
               ),
-              PopupMenuItem(
+              const PopupMenuItem(
                 child: Text("New broadcast"),
               ),
-              PopupMenuItem(
+              const PopupMenuItem(
                 child: Text("Linked devices"),
               ),
-              PopupMenuItem(
+              const PopupMenuItem(
                 child: Text("Starred messages"),
               ),
-              PopupMenuItem(
+              const PopupMenuItem(
                 child: Text("Settings"),
               ),
             ];
@@ -76,7 +77,7 @@ class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
                 tabs: [
                   Container(
                     width: 30,
-                    child: Tab(
+                    child: const Tab(
                       icon: Icon(Icons.camera_alt),
                     ),
                   ),
@@ -84,10 +85,10 @@ class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
                     width: width * 0.2,
                     child: Row(
                       children: <Widget>[
-                        Tab(
+                        const Tab(
                           text: "CHATS",
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Tab(
@@ -108,7 +109,7 @@ class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
                   Container(
                     width: width * 0.2,
                     child: Row(
-                      children: <Widget>[
+                      children: const <Widget>[
                         Tab(
                           text: "STATUS",
                         ),
@@ -126,7 +127,7 @@ class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
                   ),
                   Container(
                     width: width * 0.2,
-                    child: Tab(
+                    child: const Tab(
                       text: "CALLS",
                     ),
                   )
@@ -135,10 +136,10 @@ class _MyHomeState extends State<MyHome> with SingleTickerProviderStateMixin {
                 isScrollable: true,
               ),
             ),
-            preferredSize: Size.fromHeight(60.0)),
+            preferredSize: const Size.fromHeight(60.0)),
       ),
       body: TabBarView(
-        children: [Camera(), Chat(), Status(), Calls()],
+        children: const [Camera(), Chat(), Status(), Calls()],
         controller: _tabController,
       ),
     );

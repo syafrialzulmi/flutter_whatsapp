@@ -32,20 +32,20 @@ class _StatusState extends State<Status> {
         children: <Widget>[
           FloatingActionButton(
             onPressed: () {},
-            child: Icon(
+            child: const Icon(
               Icons.edit,
               color: Colors.blueGrey,
               size: 30,
             ),
             mini: true,
-            backgroundColor: Color(0XFFFFFFFF),
+            backgroundColor: const Color(0XFFFFFFFF),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15.0,
           ),
           FloatingActionButton(
             onPressed: () {},
-            child: Icon(Icons.camera_enhance),
+            child: const Icon(Icons.camera_enhance),
             backgroundColor: Colors.green,
           ),
         ],
@@ -58,7 +58,7 @@ class _StatusState extends State<Status> {
       padding: const EdgeInsets.all(8.0),
       child: Text(
         text,
-        style: TextStyle(color: Colors.grey),
+        style: const TextStyle(color: Colors.grey),
       ),
     );
   }
@@ -77,8 +77,8 @@ class _StatusState extends State<Status> {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.green, width: 3.0)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
+                  child: const Padding(
+                    padding: EdgeInsets.all(2.0),
                     child: CircleAvatar(
                       radius: 26.0,
                       backgroundColor: Color(0XFFDDDDDD),
@@ -90,7 +90,7 @@ class _StatusState extends State<Status> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10.0,
                 ),
                 Column(
@@ -98,14 +98,15 @@ class _StatusState extends State<Status> {
                   children: <Widget>[
                     Text(
                       title,
-                      style: TextStyle(fontSize: 16.0),
+                      style: const TextStyle(fontSize: 16.0),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3.0,
                     ),
                     Text(
                       time,
-                      style: TextStyle(fontSize: 12.0, color: Colors.grey),
+                      style:
+                          const TextStyle(fontSize: 12.0, color: Colors.grey),
                     )
                   ],
                 ),
